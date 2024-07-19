@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/dashboardandSidebar.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2 class="logo">
+        ScholarHive
+        <!-- <img src="img/image1_0.jpg" alt="" class="logo-icon" /> -->
+      </h2>
+      <ul>
+        <li>
+          <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+        </li>
+        <li>
+          <a href="#users"><i class="fas fa-users"></i> Users</a>
+        </li>
+        <li>
+          <a href="#scholarships"
+            ><i class="fas fa-graduation-cap"></i> Scholarships</a
+          >
+        </li>
+        <li>
+          <a href="#reports"><i class="fas fa-file"></i> Reports</a>
+        </li>
+        <li>
+          <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+        <li>
+          <a href="#home" id="homeButton"><i class="fas fa-home"></i> Home</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="main-content">
+      <header>
+        <button id="sidebarToggle">☰</button>
+        <h1>Dashboard</h1>
+        <div class="header-right">
+          <!-- <img
+            src="img/c0749b7cc401421662ae901ec8f9f660.jpg"
+            alt="Profile Image"
+            id="dashboardProfileImage"
+          /> -->
+          <span class="username" id="dashboardUsername">User</span>
+        </div>
+      </header>
+
+      <div class="content" id="main">
+        <section id="overview">
+          <h2>Data</h2>
+          <div class="stats">
+            <div class="stat">
+              <h3>Total Scholarships</h3>
+              <p id="totalScholarships">0</p>
+            </div>
+            <div class="stat">
+              <h3>Active Scholarships</h3>
+              <p id="activeScholarships">0</p>
+            </div>
+            <div class="stat">
+              <h3>Institution admins</h3>
+              <p id="institutionAdmins">0</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="scholarships" style="display: none">
+          <h1>Scholarships</h1>
+
+          <div class="actions">
+            <button onclick="showForm('addScholarshipForm')">
+              Add New Scholarship
+            </button>
+          </div>
+
+          <div
+            class="form-container"
+            id="addScholarshipForm"
+            style="display: none"
+          >
+            <h3>Add New Scholarship</h3>
+            <form id="scholarshipForm">
+              <label for="Institution">Institution Name:</label>
+              <input type="text" id="Institution" name="Institution" /><br />
+              <label for="scholarshipName">Scholarship Name:</label>
+              <input
+                type="text"
+                id="scholarshipName"
+                name="scholarshipName"
+              /><br />
+              <label for="scholarshipDescription">Description:</label>
+              <textarea
+                id="scholarshipDescription"
+                name="scholarshipDescription"
+              ></textarea
+              ><br />
+              <label for="scholarshipAmount">Amount:</label>
+              <input
+                type="number"
+                id="scholarshipAmount"
+                name="scholarshipAmount"
+              /><br />
+              <label for="scholarshipDeadline">Deadline:</label>
+              <input
+                type="date"
+                id="scholarshipDeadline"
+                name="scholarshipDeadline"
+              /><br />
+              <button id="scholar" type="submit">Submit</button>
+              <button type="button" onclick="hideForm('addScholarshipForm')">
+                Cancel
+              </button>
+            </form>
+          </div>
+
+          <div class="scholarship-list">
+            <h3>Your Scholarships</h3>
+            <table id="scholarshipTable">
+              <thead>
+                <tr>
+                  <th>Institution Name</th>
+                  <th>Scholarship Name</th>
+                  <th>Amount</th>
+                  <th>Deadline</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="profile" style="display: none">
+          <h2>Profile</h2>
+          <form id="profileForm">
+            <div class="profile-picture">
+              <img
+                src="img/default-profile.png"
+                alt="Profile Image"
+                id="profileImage"
+              />
+              <input
+                type="file"
+                id="profilePictureInput"
+                name="profilePicture"
+                accept="image/*"
+                onchange="loadProfileImage(event)"
+              />
+            </div>
+            <label for="Institution">Institution Name:</label>
+            <input type="text" id="institution" name="Institution" /><br />
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" /><br />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" /><br />
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" /><br />
+            <button id="btn-update" type="submit">Update</button>
+          </form>
+        </section>
+        <section id="reports" style="display: none">
+          <h2>Please leave a Comment below</h2>
+          <form id="reportForm">
+            <div class="form-group">
+              <label for="comment">Comment:</label>
+              <textarea id="comment" name="comment"></textarea>
+            </div>
+            <button id="submit-btn" type="submit">Submit</button>
+          </form>
+        </section>
+
+        <section id="users" style="display: none">
+          <h2>Users</h2>
+          <div class="user-list">
+            <table id="userTable">
+              <thead>
+                <tr>
+                  <th>Institution Name</th>
+                  <th>Username</th>
+                  <th>Scholarship Name</th>
+                  <th>Amount</th>
+                  <th>Deadline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- User rows will be inserted here dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+    <div id="notification" class="notification"></div>
+    <script src="../js/trial.js"></script>
+  </body>
+</html>

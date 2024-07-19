@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to ScholarHive</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+      }
+      .welcome-container {
+        text-align: center;
+        padding: 50px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+      }
+      .welcome-container h1 {
+        margin-bottom: 20px;
+        font-size: 2.5em;
+        color: #343a40bff;
+      }
+      .welcome-container p {
+        margin-bottom: 40px;
+        font-size: 1.2em;
+        color: #555;
+      }
+      .welcome-container button {
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 1em;
+        color: #fff;
+        background-color: #343a40bff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      .welcome-container button#joinInstitution {
+        background-color: #343a40;
+      }
+      .welcome-container button#createInstitution {
+        background-color: #17a2b8;
+      }
+      .welcome-container button:hover {
+        background-color: #343a40;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="welcome-container">
+      <h1>Welcome to ScholarHive</h1>
+      <p>Your gateway to provide endless scholarship opportunities.</p>
+      <button id="joinInstitution">Join an Institution</button>
+      <button id="createInstitution">Create an Institution</button>
+      <script src="../js/joinInstitution.js"></script>
+    </div>
+    <script src="../js/joinInstitution.js"></script>
+    <script src="../js/createInstitution.js"></script>
+  </body>
+</html>

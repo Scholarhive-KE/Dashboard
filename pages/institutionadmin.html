@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/dashboard.css" />
+    <link rel="stylesheet" href="../css/users.css" />
+  </head>
+  <body>
+    <aside class="sidebar">
+      <h2 class="logo">ScholarHive</h2>
+      <ul>
+        <li>
+          <a href="#home" id="homeButton1"><i class="fas fa-home"></i> Home</a>
+        </li>
+
+        <li>
+          <a href="#institution" id="institutionButton"
+            ><i class="fas fa-university"></i> Institutions</a
+          >
+        </li>
+        <li>
+          <a href="#students" id="studentsButton"
+            ><i class="fas fa-user-graduate"></i> Students</a
+          >
+        </li>
+        <li>
+          <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+        </li>
+        <li>
+          <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+      </ul>
+    </aside>
+
+    <div class="main-content">
+      <header id="heading">
+        <button id="sidebarToggle">☰</button>
+        <h1>Dashboard</h1>
+        <div class="header-right">
+          <!-- <img
+            src="img/c0749b7cc401421662ae901ec8f9f660.jpg"
+            alt="Profile Image"
+            id="dashboardProfileImage"
+          /> -->
+          <span class="username" id="dashboardUsername"></span>
+          <span class="username" id="dashboardInstitutions"></span>
+        </div>
+      </header>
+
+      <div class="content" id="main">
+        <section id="overview">
+          <h2>Data</h2>
+          <div class="stats">
+            <div class="stat">
+              <h3>Total Institutions</h3>
+              <p id="totalInstitutions">0</p>
+            </div>
+            <div class="stat">
+              <h3>Total Students</h3>
+              <p id="totalStudents">0</p>
+            </div>
+          </div>
+          <div class="contentP" id="contentP1">
+            <h3>
+              Welcome to scholarhive! Empowering Futures with Integrity and
+              Opportunity
+            </h3>
+          </div>
+        </section>
+
+        <section id="inst" style="display: none">
+          <h2>Institutions</h2>
+
+          <div class="inst-list user-list">
+            <table id="instTable">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Website</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="student" style="display: none">
+          <h2>Students</h2>
+
+          <div class="inst-list user-list">
+            <table id="studentTable">
+              <thead>
+                <tr>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Citizenship</th>
+                  <th>Education Level</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+
+        <div
+          id="notify"
+          style="
+            display: none;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+          "
+        >
+          Thank you!
+        </div>
+
+        <section id="profile" style="display: none">
+          <h2>Profile</h2>
+          <form id="profileForm">
+            <!-- <div class="profile-picture">
+              <img
+                src="img/default-profile.png"
+                alt="Profile Image"
+                id="profileImage"
+              />
+              <input
+                type="file"
+                id="profilePictureInput"
+                name="profilePicture"
+                accept="image/*"
+                onchange="loadProfileImage(event)"
+              />
+            </div> -->
+
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" /><br />
+            <label for="otherNames">Other Names:</label>
+            <input type="text" id="otherNames" name="otherNames" /><br />
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" /><br />
+            <button id="btn-update" type="submit">Update</button>
+          </form>
+        </section>
+      </div>
+    </div>
+    <div id="notification" class="notification"></div>
+    <script src="../js/students.js"></script>
+    <script src="../js/sidebar.js"></script>
+    <script src="../js/institutions.js"></script>
+    <script src="../js/logout.js"></script>
+    <script src="../js/homeinstitutions.js"></script>
+    <script src="../js/profileadmin.js"></script>
+
+    <!-- <script src="../js/home.js"></script> -->
+  </body>
+</html>
